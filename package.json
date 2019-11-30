@@ -1,14 +1,17 @@
 {
   "name": "Gatsby-Notebook",
   "private": true,
+  "homepage": "/Gatsby-Notebook",
   "description": "A personal gatsby notebook inspired by apollo docs.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gh-pages -d public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "predeploy": "yarn build",
+    "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
@@ -16,6 +19,7 @@
     "gatsby": "^2.18.4",
     "gatsby-source-filesystem": "^2.1.39",
     "gatsby-transformer-remark": "^2.6.38",
+    "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.12",
     "react-dom": "^16.12"
