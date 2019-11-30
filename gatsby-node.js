@@ -17,6 +17,7 @@ exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
               path
               sideTitle
               sideSubTitle
+              isPublish
             }
           }
         }
@@ -33,17 +34,19 @@ exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
   const sideBar = {}
 
   result.data.allMarkdownRemark.edges.forEach(({ node }, i) => {
-    const sideBarSingleData = {
-      sideSubTitle: node.frontmatter.sideSubTitle,
-    }
-    if (sideBar[node.frontmatter.sideTitle])
-      sideBar[node.frontmatter.sideTitle].push(sideBarSingleData)
-    else sideBar[node.frontmatter.sideTitle] = [sideBarSingleData]
+    const { isPublish, sideSubTitle, sideTitle } = node.frontmatter
 
-    createPage({
-      path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: { sideBar },
-    })
+    if (isPublish) {
+      const sideBarSingleData = { sideSubTitle }
+
+      if (sideBar[sideTitle]) sideBar[sideTitle].push(sideBarSingleData)
+      else sideBar[sideTitle] = [sideBarSingleData]
+
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPostTemplate,
+        context: { sideBar },
+      })
+    }
   })
 }
