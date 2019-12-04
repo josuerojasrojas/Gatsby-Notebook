@@ -7,23 +7,49 @@
 }
 
 .sidebarSection ul li,
-.sidebarSection .title {
+.sidebarSection .title .titleText {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .title {
+  align-items: center;
   color: rgb(90, 98, 112);
   cursor: pointer;
+  display: flex;
+  font-size: 1.05rem;
   font-weight: 600;
+  justify-content: space-between;
   letter-spacing: 0.01rem;
   margin-top: 10px;
   padding: 7px 0px;
   transition: 100ms color, 150ms opacity;
 }
 
+.title .titleText {
+  max-width: calc(100% - 40px);
+}
+
+.title::after {
+  /* TODO: change this to mask to change color when is active or current */
+  background-image: url("../../../assets/chevron-down.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  height: 24px;
+  transition: 250ms transform;
+  width: 24px;
+}
+
 .title:hover {
   opacity: 0.8;
+}
+
+.links {
+  overflow-y: hidden;
+  transition: 250ms height;
 }
 
 .sidebarSection ul li {
@@ -42,6 +68,10 @@
 
 .isCurrentView .title {
   color: rgb(40, 104, 122);
+}
+
+.active .title::after {
+  transform: rotate(180deg);
 }
 
 .isCurrentView .activeLink a {

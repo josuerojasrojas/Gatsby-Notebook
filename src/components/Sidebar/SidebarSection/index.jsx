@@ -9,13 +9,15 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
 
   // probably should find another way to find if the link is the current one. but since the path is inside an object inside an array makes this more complicated.. i won't add a todo but something to think about
   useEffect(() => {
+    let isThisView = false
     for (let { path } of sectionLinks) {
       if (window.location.pathname === path) {
-        setIsCurrentView(path)
+        isThisView = path
         break
       }
     }
-  }, [sectionLinks])
+    setIsCurrentView(isThisView)
+  }, [window.location.pathname, sectionLinks])
 
   return (
     <div
@@ -25,9 +27,12 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
       })}
     >
       <div className={styles.title} onClick={toggleSection}>
-        {title}
+        <div className={styles.titleText}>{title}</div>
       </div>
-      <div className={styles.links}>
+      <div
+        className={styles.links}
+        style={{ height: isActive ? `${sectionLinks.length * 28}px` : "0px" }}
+      >
         <ul>
           {sectionLinks.map(({ path, sideSubTitle }, i) => (
             <li
