@@ -8,5 +8,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-root-import`,
+    `gatsby-plugin-mdx`,
   ],
 }

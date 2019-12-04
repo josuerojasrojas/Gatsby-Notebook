@@ -1,0 +1,31 @@
+.content {
+  border-right: 1px solid gray;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 10px;
+  position: fixed;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 240px;
+}
+
+.sidebar {
+  display: inline-block;
+  height: 100vh;
+  position: relative;
+  width: 240px;
+}
+
+.sidebar .title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.sidebar .title span {
+  /* TODO: make colors more dynamic */
+  background-color: rgb(221, 241, 223);
+  color: rgb(40, 104, 122);
+  display: inline-block;
+  padding: 5px;
+}

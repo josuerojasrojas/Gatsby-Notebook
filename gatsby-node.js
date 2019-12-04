@@ -3,7 +3,7 @@ const path = require(`path`)
 exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/default.js`)
+  const blogPostTemplate = path.resolve(`src/templates/default/index.jsx`)
 
   const result = await graphql(`
     {
@@ -33,11 +33,11 @@ exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
 
   const sideBar = {}
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }, i) => {
-    const { isPublish, sideSubTitle, sideTitle } = node.frontmatter
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { isPublish, path, sideSubTitle, sideTitle } = node.frontmatter
 
     if (isPublish) {
-      const sideBarSingleData = { sideSubTitle }
+      const sideBarSingleData = { path, sideSubTitle }
 
       if (sideBar[sideTitle]) sideBar[sideTitle].push(sideBarSingleData)
       else sideBar[sideTitle] = [sideBarSingleData]

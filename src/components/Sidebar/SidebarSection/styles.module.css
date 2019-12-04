@@ -1,0 +1,49 @@
+.sidebarsection {
+}
+
+.sidebarSection ul {
+  list-style: none;
+  padding: 0 3px;
+}
+
+.sidebarSection ul li,
+.sidebarSection .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  color: rgb(90, 98, 112);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+  margin-top: 10px;
+  padding: 7px 0px;
+  transition: 100ms color, 150ms opacity;
+}
+
+.title:hover {
+  opacity: 0.8;
+}
+
+.sidebarSection ul li {
+  margin-bottom: 10px;
+}
+
+.sidebarSection ul li a {
+  color: rgb(90, 98, 112);
+  text-decoration: none;
+  transition: 100ms color, 150ms opacity;
+}
+
+.sidebarSection ul li a:hover {
+  opacity: 0.8;
+}
+
+.isCurrentView .title {
+  color: rgb(40, 104, 122);
+}
+
+.isCurrentView .activeLink a {
+  color: rgb(40, 104, 122);
+}
