@@ -17,7 +17,7 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
       }
     }
     setIsCurrentView(isThisView)
-  }, [window.location.pathname, sectionLinks])
+  }, [sectionLinks])
 
   return (
     <div
