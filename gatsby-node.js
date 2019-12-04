@@ -3,7 +3,7 @@ const path = require(`path`)
 exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/default.js`)
+  const blogPostTemplate = path.resolve(`src/templates/default/index.jsx`)
 
   const result = await graphql(`
     {
@@ -17,6 +17,7 @@ exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
               path
               sideTitle
               sideSubTitle
+              isPublish
             }
           }
         }
@@ -32,18 +33,20 @@ exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
 
   const sideBar = {}
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }, i) => {
-    const sideBarSingleData = {
-      sideSubTitle: node.frontmatter.sideSubTitle,
-    }
-    if (sideBar[node.frontmatter.sideTitle])
-      sideBar[node.frontmatter.sideTitle].push(sideBarSingleData)
-    else sideBar[node.frontmatter.sideTitle] = [sideBarSingleData]
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { isPublish, path, sideSubTitle, sideTitle } = node.frontmatter
 
-    createPage({
-      path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: { sideBar },
-    })
+    if (isPublish) {
+      const sideBarSingleData = { path, sideSubTitle }
+
+      if (sideBar[sideTitle]) sideBar[sideTitle].push(sideBarSingleData)
+      else sideBar[sideTitle] = [sideBarSingleData]
+
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPostTemplate,
+        context: { sideBar },
+      })
+    }
   })
 }

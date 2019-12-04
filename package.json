@@ -16,7 +16,12 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.5.1",
+    "@mdx-js/react": "^1.5.1",
+    "classnames": "^2.2.6",
     "gatsby": "^2.18.4",
+    "gatsby-plugin-layout": "^1.1.16",
+    "gatsby-plugin-mdx": "^1.0.58",
     "gatsby-source-filesystem": "^2.1.39",
     "gatsby-transformer-remark": "^2.6.38",
     "gh-pages": "^2.1.1",
@@ -25,6 +30,7 @@
     "react-dom": "^16.12"
   },
   "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.18.2"
   },
   "repository": {
