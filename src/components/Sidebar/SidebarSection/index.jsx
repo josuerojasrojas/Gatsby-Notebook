@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import classNames from "classnames"
 
 const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
@@ -11,8 +11,9 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
   useEffect(() => {
     let isThisView = false
     for (let { path } of sectionLinks) {
-      if (window.location.pathname === path) {
-        isThisView = path
+      const _path = withPrefix(path)
+      if (window.location.pathname === _path) {
+        isThisView = _path
         break
       }
     }
@@ -37,7 +38,7 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
           {sectionLinks.map(({ path, sideSubTitle }, i) => (
             <li
               className={classNames({
-                [styles.activeLink]: path === isCurrentView,
+                [styles.activeLink]: withPrefix(path) === isCurrentView,
               })}
               key={`sidebar-link-${i}`}
             >

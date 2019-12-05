@@ -1,4 +1,7 @@
+const packageJson = require("./package.json")
+
 module.exports = {
+  pathPrefix: `${packageJson.homepage}`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
