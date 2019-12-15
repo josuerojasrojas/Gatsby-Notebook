@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import SidebarSection from "./SidebarSection/"
 import PropTypes from "prop-types"
+import { Link, withPrefix } from "gatsby"
 import classNames from "classnames"
 import styles from "./styles.module.css"
 
@@ -16,16 +17,16 @@ const Sidebar = ({ className, isShown, links, title }) => {
     <div className={classNames(className, styles.sidebar)}>
       <div className={styles.content}>
         <div className={styles.title}>
-          <span>{title}</span>
+          <Link to={withPrefix("")}>{title}</Link>
         </div>
         <div className={styles.links}>
-          {Object.keys(links).map((sectionTitle, i) => (
+          {links.map((linkData, i) => (
             <SidebarSection
               isActive={i === activeSection}
               key={`sidebarsection-${i}`}
               toggleSection={() => toggleActiveSection(i)}
-              sectionLinks={links[sectionTitle]}
-              title={sectionTitle}
+              sectionLinks={linkData.pages}
+              title={linkData.title}
             />
           ))}
         </div>
@@ -37,7 +38,7 @@ const Sidebar = ({ className, isShown, links, title }) => {
 Sidebar.propTypes = {
   className: PropTypes.string,
   isShown: PropTypes.bool,
-  links: PropTypes.object,
+  links: PropTypes.array,
   title: PropTypes.string,
 }
 
