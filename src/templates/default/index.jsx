@@ -10,14 +10,11 @@ export default function Template({ data, pageContext }) {
   const { markdownRemark } = data
   const { html } = markdownRemark
   const { sideBar } = pageContext
+  const { mainTitle, sidePages } = sideBar
 
   return (
     <div className={styles.container}>
-      <Sidebar
-        links={sideBar}
-        isShown={isSidebarShown}
-        title={"Sidebar Title"}
-      />
+      <Sidebar links={sidePages} isShown={isSidebarShown} title={mainTitle} />
       <div className={styles.mdContent}>
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>

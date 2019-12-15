@@ -1,52 +1,68 @@
 const path = require(`path`)
 
+const PUBLISH_PAGES = {
+  // if no path is found then uses none
+  mdPath: `${__dirname}/src/markdown`,
+  sidebar: {
+    mainTitle: "THE DOC",
+    sidePages: [
+      {
+        title: "Some Title",
+        pages: ["first.md", "second.md"],
+      },
+      {
+        title:
+          "A test md file umm this is also a long title for testing purposes of course. ",
+        pages: ["test.md"],
+      },
+      {
+        title: "Another Title",
+        pages: ["third.md"],
+      },
+    ],
+  },
+}
+
 exports.createPages = async ({ actions, graphql, reporter, ...other }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/default/index.jsx`)
+  const defaultTemplate = path.resolve(`src/templates/default/index.jsx`)
 
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              path
-              sideTitle
-              sideSubTitle
-              isPublish
-            }
+  const mdPath = PUBLISH_PAGES.mdPath || ""
+  const sideBar = { ...PUBLISH_PAGES.sidebar }
+
+  PUBLISH_PAGES.sidebar.sidePages.forEach(({ title, pages }, sidePageIndex) => {
+    pages.forEach(async (src, singlePageIndex) => {
+      const _src = path.resolve(mdPath, src)
+      const result = await graphql(`
+        {
+        markdownRemark(fileAbsolutePath: {eq: "${_src}"}){
+          html
+          frontmatter {
+            path
+            sideSubTitle
           }
         }
+      }`)
+
+      if (result.errors) {
+        reporter.panicOnBuild(`Error while running GraphQL query.`)
+        return
       }
-    }
-  `)
 
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
+      const sideBarSingleData = { ...result.data.markdownRemark.frontmatter }
+      sideBar.sidePages[sidePageIndex].pages[
+        singlePageIndex
+      ] = sideBarSingleData
 
-  const sideBar = {}
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { isPublish, path, sideSubTitle, sideTitle } = node.frontmatter
-
-    if (isPublish) {
-      const sideBarSingleData = { path, sideSubTitle }
-
-      if (sideBar[sideTitle]) sideBar[sideTitle].push(sideBarSingleData)
-      else sideBar[sideTitle] = [sideBarSingleData]
-
+      // TODO: Action createPage was called outside of its expected asynchronous lifecycle createPages in default-site-plugin.
+      // Ensure that you return a Promise from createPages and are awaiting any asynchronous method invocations (like graphql or http requests).
+      // For more info and debugging tips: see https://gatsby.dev/sync-action
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
+        path: sideBarSingleData.path,
+        component: defaultTemplate,
         context: { sideBar },
       })
-    }
+    })
   })
 }

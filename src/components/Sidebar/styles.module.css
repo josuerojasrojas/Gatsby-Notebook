@@ -22,10 +22,17 @@
   text-align: center;
   margin-bottom: 15px;
 }
-.sidebar .title span {
+.sidebar .title a {
   /* TODO: make colors more dynamic */
   background-color: rgb(221, 241, 223);
   color: rgb(40, 104, 122);
   display: inline-block;
+  margin-bottom: 35px;
   padding: 5px;
+  text-decoration: none;
+  transition: 250ms opacity;
+}
+
+.sidebar .title a:hover {
+  opacity: 0.8;
 }
