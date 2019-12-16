@@ -14,7 +14,12 @@ export default function Template({ data, pageContext }) {
 
   return (
     <div className={styles.container}>
-      <Sidebar links={sidePages} isShown={isSidebarShown} title={mainTitle} />
+      <Sidebar
+        closeCallback={() => setIsSidebarShown(false)}
+        links={sidePages}
+        isShown={isSidebarShown}
+        title={mainTitle}
+      />
       <div className={styles.mdContent}>
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>

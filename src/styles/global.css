@@ -24,3 +24,11 @@ h6,
 ul {
   margin: 0;
 }
+
+:root {
+  --size-small-devices: 576px;
+  --size-medium-devices: 768px;
+  --size-large-devices: 992px;
+  --size-extra-large-devices: 1200px;
+  --sidebar-width: 240px;
+}
