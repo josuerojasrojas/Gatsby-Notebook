@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Sidebar from "src/components/Sidebar"
+import TopBar from "src/components/TopBar"
 import styles from "./styles.module.css"
 
 export default function Template({ data, pageContext }) {
@@ -21,6 +22,7 @@ export default function Template({ data, pageContext }) {
         title={mainTitle}
       />
       <div className={styles.mdContent}>
+        <TopBar clickedMenu={() => setIsSidebarShown(true)} />
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>

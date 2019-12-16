@@ -12,7 +12,10 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
     let isThisView = false
     for (let { path } of sectionLinks) {
       const _path = withPrefix(path)
-      if (window.location.pathname === _path) {
+      if (
+        window.location.pathname === _path ||
+        window.location.pathname === `${_path}/`
+      ) {
         isThisView = _path
         break
       }
