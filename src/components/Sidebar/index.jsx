@@ -22,7 +22,7 @@ const Sidebar = ({ className, closeCallback, isShown, links, title }) => {
       >
         <div className={styles.content}>
           <div className={styles.title}>
-            <Link to={withPrefix("")}>{title}</Link>
+            <Link to={"/"}>{title}</Link>
           </div>
           <div className={styles.links}>
             {links.map((linkData, i) => (
