@@ -4,6 +4,12 @@
 
 .mdContent {
   display: inline-block;
-  padding: 10px 20px;
-  width: calc(100% - 240px);
+  padding: 20px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .mdContent {
+    width: calc(100% - var(--sidebar-width));
+  }
 }

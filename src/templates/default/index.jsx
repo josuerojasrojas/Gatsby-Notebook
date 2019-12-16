@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Sidebar from "src/components/Sidebar"
+import TopBar from "src/components/TopBar"
 import styles from "./styles.module.css"
 
 export default function Template({ data, pageContext }) {
@@ -14,8 +15,14 @@ export default function Template({ data, pageContext }) {
 
   return (
     <div className={styles.container}>
-      <Sidebar links={sidePages} isShown={isSidebarShown} title={mainTitle} />
+      <Sidebar
+        closeCallback={() => setIsSidebarShown(false)}
+        links={sidePages}
+        isShown={isSidebarShown}
+        title={mainTitle}
+      />
       <div className={styles.mdContent}>
+        <TopBar clickedMenu={() => setIsSidebarShown(true)} />
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>

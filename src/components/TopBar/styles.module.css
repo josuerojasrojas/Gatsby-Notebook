@@ -1,0 +1,64 @@
+.topBar {
+  background-color: white;
+  display: flex;
+  margin-bottom: 30px;
+  /* TODO: make topBar fixed */
+  /* position: fixed; */
+  width: 100%;
+}
+.menuButton {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  height: 27px;
+  justify-content: space-around;
+  margin-right: 10px;
+  position: relative;
+  width: 27px;
+}
+
+.menuLine {
+  background-color: black;
+  border-radius: 10px;
+  height: 4px;
+  transition: 200ms width;
+  width: 100%;
+}
+
+.menuButton:hover .menuLine {
+  width: 95%;
+}
+
+.search {
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.59);
+  font-size: 16px;
+  margin-right: 10px;
+  padding: 5px 5px;
+  /* meny button + sourceText: 37 + 83 */
+  width: calc(100% - 120px);
+}
+
+.sourceText {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.gitlogo {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 27px;
+  width: 27px;
+  margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .menuButton {
+    display: none;
+  }
+
+  .search {
+    width: calc(100% - 83px);
+  }
+}

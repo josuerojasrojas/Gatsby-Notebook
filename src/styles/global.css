@@ -14,6 +14,16 @@ body {
   box-sizing: inherit;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+  transition: 250ms opacity;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
 p,
 h1,
 h2,
@@ -23,4 +33,12 @@ h5,
 h6,
 ul {
   margin: 0;
+}
+
+:root {
+  --size-small-devices: 576px;
+  --size-medium-devices: 768px;
+  --size-large-devices: 992px;
+  --size-extra-large-devices: 1200px;
+  --sidebar-width: 240px;
 }
