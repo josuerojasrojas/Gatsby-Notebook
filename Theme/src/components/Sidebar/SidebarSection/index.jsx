@@ -4,7 +4,13 @@ import styles from "./styles.module.css"
 import { Link, withPrefix } from "gatsby"
 import classNames from "classnames"
 
-const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
+const SidebarSection = ({
+  closeCallback,
+  isActive,
+  sectionLinks,
+  title,
+  toggleSection,
+}) => {
   const [isCurrentView, setIsCurrentView] = useState(false)
 
   // probably should find another way to find if the link is the current one. but since the path is inside an object inside an array makes this more complicated.. i won't add a todo but something to think about
@@ -38,16 +44,26 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
         style={{ height: isActive ? `${sectionLinks.length * 28}px` : "0px" }}
       >
         <ul>
-          {sectionLinks.map(({ path, sideSubTitle }, i) => (
-            <li
-              className={classNames({
-                [styles.activeLink]: withPrefix(path) === isCurrentView,
-              })}
-              key={`sidebar-link-${i}`}
-            >
-              <Link to={path}>{sideSubTitle}</Link>
-            </li>
-          ))}
+          {sectionLinks.map(({ path, sideSubTitle }, i) => {
+            const isActiveLink = withPrefix(path) === isCurrentView
+            return (
+              <li
+                className={classNames({
+                  [styles.activeLink]: isActiveLink,
+                })}
+                key={`sidebar-link-${i}`}
+              >
+                <Link
+                  onClick={() => {
+                    if (!isActiveLink) closeCallback()
+                  }}
+                  to={path}
+                >
+                  {sideSubTitle}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </div>
@@ -55,6 +71,7 @@ const SidebarSection = ({ isActive, sectionLinks, title, toggleSection }) => {
 }
 
 SidebarSection.propTypes = {
+  closeCallback: PropTypes.func,
   isActive: PropTypes.bool,
   sectionLinks: PropTypes.array,
   title: PropTypes.string,
