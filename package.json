@@ -5,23 +5,6 @@
   "description": "A personal gatsby notebook inspired by apollo docs.",
   "version": "0.1.0",
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build --prefix-paths",
-    "deploy": "gh-pages -d public",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "predeploy": "yarn build",
-    "start": "yarn develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
-  },
-  "dependencies": {
-    "gh-pages": "^2.1.1",
-  },
-  "devDependencies": {
-    "gatsby-plugin-root-import": "^2.0.5",
-    "prettier": "^1.18.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/josuerojasrojas/Gatsby-Notebook"
