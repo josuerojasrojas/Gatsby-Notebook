@@ -27,6 +27,7 @@ const Sidebar = ({ className, closeCallback, isShown, links, title }) => {
           <div className={styles.links}>
             {links.map((linkData, i) => (
               <SidebarSection
+                closeCallback={closeCallback}
                 isActive={i === activeSection}
                 key={`sidebarsection-${i}`}
                 toggleSection={() => toggleActiveSection(i)}
