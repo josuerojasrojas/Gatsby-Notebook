@@ -4,8 +4,7 @@ import Sidebar from "src/components/Sidebar"
 import TopBar from "src/components/TopBar"
 import styles from "./styles.module.css"
 
-export default function Template({ data, pageContext }) {
-  // TODO: setup for mobile view to trigger menu
+export default function Template({ data, pageContext, ...rest }) {
   const [isSidebarShown, setIsSidebarShown] = useState(false)
 
   const { markdownRemark } = data

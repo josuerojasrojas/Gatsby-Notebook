@@ -5,39 +5,12 @@
   "description": "A personal gatsby notebook inspired by apollo docs.",
   "version": "0.1.0",
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build --prefix-paths",
-    "deploy": "gh-pages -d public",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "predeploy": "yarn build",
-    "start": "yarn develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
-  },
-  "dependencies": {
-    "@mdx-js/mdx": "^1.5.1",
-    "@mdx-js/react": "^1.5.1",
-    "classnames": "^2.2.6",
-    "gatsby": "^2.18.4",
-    "gatsby-plugin-layout": "^1.1.16",
-    "gatsby-plugin-mdx": "^1.0.58",
-    "gatsby-source-filesystem": "^2.1.39",
-    "gatsby-transformer-remark": "^2.6.38",
-    "gh-pages": "^2.1.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12",
-    "react-dom": "^16.12"
-  },
-  "devDependencies": {
-    "gatsby-plugin-root-import": "^2.0.5",
-    "prettier": "^1.18.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/josuerojasrojas/Gatsby-Notebook"
   },
   "bugs": {
     "url": "https://github.com/josuerojasrojas/Gatsby-Notebook/issues"
-  }
+  },
+  "workspaces": ["Theme", "Notebook"]
 }
