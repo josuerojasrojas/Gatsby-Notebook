@@ -9,8 +9,11 @@ This is my attempt to use Gatsby to make a personal notebooks (for secrets and s
 Develop
 
 ```bash
-yarn workspace Notebook develop
+yarn workspace example develop
 ```
 
 Deploy
-yarn workspace Notebook deploy
+
+```bash
+yarn workspace example deploy
+```

@@ -1,5 +1,5 @@
 {
-  "name": "Notebook",
+  "name": "example",
   "homepage": "/Gatsby-Notebook",
   "version": "1.0.0",
   "main": "index.js",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "gatsby": "^2.6.0",
-    "Theme":  "^1.0.0",
+    "gatsby-theme-apollo-clone":  "^0.0.1",
     "gh-pages": "^2.1.1"
   }
 }

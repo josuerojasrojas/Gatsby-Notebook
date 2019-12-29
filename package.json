@@ -3,7 +3,7 @@
   "private": true,
   "homepage": "/Gatsby-Notebook",
   "description": "A personal gatsby notebook inspired by apollo docs.",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,5 +12,5 @@
   "bugs": {
     "url": "https://github.com/josuerojasrojas/Gatsby-Notebook/issues"
   },
-  "workspaces": ["Theme", "Notebook"]
+  "workspaces": ["gatsby-theme-apollo-clone", "example"]
 }

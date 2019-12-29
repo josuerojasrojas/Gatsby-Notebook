@@ -26,7 +26,7 @@ const PUBLISH_PAGES = {
 module.exports = {
   plugins: [
     {
-      resolve: `Theme`,
+      resolve: `gatsby-theme-apollo-clone`,
       options: {
         packageJson,
         pages: PUBLISH_PAGES,
