@@ -9,8 +9,7 @@ This is my attempt to use Gatsby to make a personal notebooks (for secrets and s
 In your project root
 
 ```bash
-yarn add gatsby
-yarn add gatsby-theme-apollo-clone
+yarn add gatsby gatsby-theme-apollo-clone
 ```
 
 Then create a file `gatsby-config.js` and follow the example
@@ -58,4 +57,20 @@ module.exports = {
     },
   ],
 }
+```
+
+To start add script to package.json
+
+```json
+{
+  "scripts": {
+    "develop": "gatsby develop"
+  }
+}
+```
+
+and on command line
+
+```bash
+yarn develop
 ```
