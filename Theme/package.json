@@ -15,8 +15,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12",
     "react-dom": "^16.12",
-    "rehype-react": "^4.0.1",
-    "yarn": "^1.21.1"
+    "rehype-react": "^4.0.1"
   },
   "devDependencies": {
     "gatsby-plugin-root-import": "^2.0.5",

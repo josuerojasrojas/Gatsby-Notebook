@@ -24,7 +24,6 @@ export default function Template({ data, pageContext, ...rest }) {
       <div className={styles.mdContent}>
         <TopBar clickedMenu={() => setIsSidebarShown(true)} />
         {renderAst(htmlAst)}
-        <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>
   )
@@ -33,7 +32,6 @@ export default function Template({ data, pageContext, ...rest }) {
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
       htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
