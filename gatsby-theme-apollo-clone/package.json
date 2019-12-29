@@ -1,13 +1,27 @@
 {
-  "name": "Theme",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "gatsby-theme-apollo-clone",
+  "version": "0.0.1",
   "license": "MIT",
+  "files": [
+    "gatsby-browser.js",
+    "gatsby-config.js",
+    "gatsby-node.js",
+    "src/*",
+    "static/*",
+    "README.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josuerojasrojas/Gatsby-Notebook"
+  },
+  "bugs": {
+    "url": "https://github.com/josuerojasrojas/Gatsby-Notebook/issues"
+  },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "classnames": "^2.2.6",
-    "gatsby": "^2.18.4",
     "gatsby-plugin-layout": "^1.1.16",
     "gatsby-plugin-mdx": "^1.0.58",
     "gatsby-source-filesystem": "^2.1.39",
@@ -20,5 +34,8 @@
   "devDependencies": {
     "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.18.2"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.18.4"
   }
 }
