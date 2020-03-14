@@ -1558,9 +1558,9 @@ acorn-jsx@^5.1.0:
   integrity sha512-tMUqwBWfLFbJbizRmEcWSLw6HnFzfdJs2sOJEOwwtVPMoH/0Ay+E703oZz78VSXZiiDcZrQ5XKjPIUQixhmgVw==
 
 acorn@^6.2.1:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
-  integrity sha512-/czfa8BwS88b9gWQVhc8eknunSA2DoJpJyTQkhheIf5E48u1N0R4q/YxxsAeqRrmK9TQ/uYfgLDfZo91UlANIA==
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
+  integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 acorn@^7.1.0:
   version "7.1.0"
@@ -5099,6 +5099,23 @@ gatsby-telemetry@^1.1.46:
     stack-trace "^0.0.10"
     stack-utils "1.0.2"
     uuid "3.3.3"
+
+gatsby-theme-apollo-clone@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-apollo-clone/-/gatsby-theme-apollo-clone-0.0.1.tgz#60c74943198dd6d225ff7fa881546500f0a9a955"
+  integrity sha512-GSBTMBcNvnbqGIO2HEHvxxClJq2hLjVgptQQgjeMVg8c3IpQ5tS8N52c+3UPtBPSH9ijYvgOYydEFmKu9oiwxg==
+  dependencies:
+    "@mdx-js/mdx" "^1.5.1"
+    "@mdx-js/react" "^1.5.1"
+    classnames "^2.2.6"
+    gatsby-plugin-layout "^1.1.16"
+    gatsby-plugin-mdx "^1.0.58"
+    gatsby-source-filesystem "^2.1.39"
+    gatsby-transformer-remark "^2.6.38"
+    prop-types "^15.7.2"
+    react "^16.12"
+    react-dom "^16.12"
+    rehype-react "^4.0.1"
 
 gatsby-transformer-remark@^2.6.38:
   version "2.6.38"
